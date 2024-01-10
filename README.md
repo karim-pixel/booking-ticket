@@ -292,11 +292,5 @@ total_amount = b[count].cost * total_seat;
  print ("\t\t\t\t\t\t\t -----------------------THEATER BOOKING TICKET---------------------\n");
  printf ("\t\t\t\t\t\t\t=======================================================================\n") :
  printf ("\n\n\n\n \t\t\t\tName : %s                   It\t\t\t\tItMovie name : 8s \n" , name, b [count].
- printf ("t t\t\ tMobile Number
-•§d
--_-
+ 
 
-=\n") :
-It\t\t\t\tItMovie name : 8s \n" , name, b [count].
-\tit\t\t\tdate
-8s \n", mobile, b (count].date)
