@@ -1,3 +1,5 @@
+
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -25,7 +27,7 @@ fp = fopen("BookedSeat.txt","w");
         c=pword [i];
         if (c==13) break;
         else printf ("*");
-        i++:
+        i++;
     }
     pword[i]='\0';
     //char code=pword;
@@ -42,7 +44,7 @@ fp = fopen("BookedSeat.txt","w");
         }
         else
         {
-   printf ("\n   LOGIN IS UNSUCCESSFUL \n Try again!!!\n"):
+   printf ("\n   LOGIN IS UNSUCCESSFUL \n Try again!!!\n");
    a++;
 
   getch(); //holds the screen
@@ -105,7 +107,7 @@ void main ()
     break;
 
     case 3:
-        old record ();
+        old_record ();
     break;
 
     case 0:
@@ -121,7 +123,7 @@ void main ()
 }
 
 
-void movie details ()
+void movie_details ()
 {
 
     char ch;
@@ -137,7 +139,7 @@ void movie details ()
    else
    {
        system("cls");
-       while(( ch = fgetc (fp) ) I- EOF )
+       while(( ch = fgetc (fp) ) !=EOF )
         printf ("%c", ch);
 
    }
@@ -150,20 +152,20 @@ void movie details ()
  void buy_ticket ()
 {int count=0;
 //struct book b;
-FILE *£p;
+   FILE *fp;
 
 FILE *ufp;
 
-  int total_seat,mobile,total amount;
+  int total_seat,mobile,total_amount;
   char name [20];
 
 
   char ch; //used.in display all movies
-  char movie_ code[20]; // for searching
+  char movie_code[20]; // for searching
 
   //display all movies by default for movie code
   fp - fopen ("data.txt" , "r");
-  1f (fp == NULL)
+  if (fp == NULL)
   {
       printf ("file does not found !");
       exit (1);
@@ -172,7 +174,7 @@ FILE *ufp;
   else
   {
       system ("cls");
-      while ( ( ch = fgetc(fp) ) ! = EOF )
+      while ( ( ch = fgetc(fp) ) != EOF )
       printf ("%c", ch);
 
   }
@@ -181,7 +183,7 @@ FILE *ufp;
           //display ends
           printf ("\n To Buy ticket Choice Movie (Enter the number of Movie) \n");
           printf ("\n Enter movie code :");
-          scanf ("%s" , movie_code):
+          scanf ("%s" ,movie_code);
           //system("clear")
        fp = fopen ("data.txt", "r");
        if (fp == NULL)
@@ -194,20 +196,20 @@ FILE *ufp;
       {
           while (getc (fp) != EOF)
        {
-       fscanf (fp, "8s is is as &d", b[count] . code, b [count] . name, b [count] . date, b [count] .time, &b [count]
+       fscanf (fp, "8s is is as &d", b[count] . code, b [count] . name, b [count] . date, b [count] .time, &b [count]);
 
-      if (stremp (b [count] .code, movie code) == 0)
+      if(strcmp(b[count].code,movie_code)== 0)
       {
       //printf("%s / %s / %3 / 85 / %d\n", b.code, b.name, b.date, b.time, b.cost) ;
       printf ("\n Record Found\n");
       printf ("\n\t\tCode ::%s", b[count]. code);
-      printf ("\n\t\tMovie name ::%s" b[count].name);
+      printf ("\n\t\tMovie name ::%s", b[count].name);
       printf("\n\t\tDate ::%s", b[count].date);
       printf ("In\t\tTime ::%s", b[count].time) ;
       printf ("\n\t\tPrice of ticket::%dTK", b[count].cost);
 
       break;
-      }
+    }
      count++;
 
        }
@@ -215,17 +217,17 @@ FILE *ufp;
     }
     printf("\n* Fill Details *");
     printf("\n Your name :");
-   }
-    printf("\n* Fill Details *");
-    printf("\n Your name :");
-    printf ("'n Total number of tickets :");
-    scanf ("Sd",&total seat);
-    if (total seat>=10)
+    scanf("%s",name);
+    printf("\n * Mobile number *");
+    scanf("%d",&mobile);
+    printf ("\n Total number of tickets :");
+    scanf ("%d",&total_seat);
+    if (total_seat>=10)
   {
     printf ("You can't book these amount of tickets \n");
     printf ("Please book between 10 tickets\n");
     printf ("\nPlease re-enter total number of tickets : ");
-    scanf ("%d", &total seat);
+    scanf ("%d", &total_seat);
 }
    int i,j;
    int seat [10];
@@ -257,7 +259,7 @@ FILE *ufp;
    fclose(fp);
      printf ("\n These seats are booked for %s Movie", b [count] .name);
      printf ("\n Please choose others seats");
-     for i=1;i‹=total seat;i++) {
+     for (i=1;i<=total_seat;i++) {
      printf ("\n Choose seat number :");
   scanf ("%d", &j);
 
@@ -268,7 +270,7 @@ FILE *ufp;
          scanf ("%d", &j);
     }
       ufp=fopen ("Bookedssat .txt", "a");
-   1f (ufp == NULL)
+   if (ufp == NULL)
    {
       printf ("File not Found");
    }
@@ -282,25 +284,25 @@ FILE *ufp;
   fclose (ufp);
   fclose (fp);
 
-     }
+  }
 
 
 
-total_amount = b[count].cost * total_seat;
+     total_amount = b[count].cost * total_seat;
 
- printf ("\n\n");
- printf ("\t\t\t\t\t\t\t -----------------------THEATER BOOKING TICKET---------------------\n");
- printf ("\t\t\t\t\t\t\t=======================================================================\n") :
- printf ("\n\n\n\n \t\t\t\tName : %s                   It\t\t\t\tItMovie name : %s \n" , name, b [count].
- printf ("\t\t\t\tMobile Number : %d        \t\t\t\t\tDate      : %s\n", mobile, b[count].date);
- printf("\t\t\t\t\t\t\t\t\t                             Time              : %s",b[count].time);
- printf ("\n\t\t\t\t\t                            Total seats : %d", total _seat);
- printf ("\n\t\t\t\t\t                            Cost per ticket: %dTK" b [count].cost);
- printf ("\n\t\t\t\t\t                            Total Amount : %dTK",total_amount);
- printf ("\n\t\t\t\t\t                             Seat Number : ");
- for(i=1,i<=total_seat;i++)
+     printf ("\n\n");
+     printf ("\t\t\t\t\t\t\t -----------------------THEATER BOOKING TICKET---------------------\n");
+     printf ("\t\t\t\t\t\t\t=======================================================================\n");
+     printf ("\n\n\n\n \t\t\t\tName : %s                   It\t\t\t\tItMovie name : %s \n" , name, b [count].name);
+     printf ("\t\t\t\tMobile Number : %d        \t\t\t\t\tDate      : %s\n", mobile, b[count].date);
+     printf("\t\t\t\t\t\t\t\t\t                             Time              : %s",b[count].time);
+     printf ("\n\t\t\t\t\t                            Total seats : %d", total_seat);
+     printf ("\n\t\t\t\t\t                            Cost per ticket: %dTK" ,b[count].cost);
+     printf ("\n\t\t\t\t\t                            Total Amount : %dTK",total_amount);
+     printf ("\n\t\t\t\t\t                             Seat Number : ");
+     for(i=1;i<=total_seat;i++)
  {
-    printf ("%d  ",seat[i-1]); 
+    printf ("%d  ",seat[i-1]);
  }
   printf ("\n");
 
@@ -309,7 +311,7 @@ total_amount = b[count].cost * total_seat;
  printf("\n\t\t\t\t\t\t\t  **************** BKASH ********************\n");
  printf ("\n Merchant Number: 01869738641\n");
  printf ("\n Your number: %d\n", mobile);
- printf("\n Total Amount : %dTK\n", total amount);
+ printf("\n Total Amount : %dTK\n", total_amount);
  printf("\n\n\t\t\t\t\t\t\t\t ********** Booking Confirmed **********  \n");
  printf("\n\n\t\t\t\t\t\t\t\t ********** ENJOY YOUR MOVIE **********  \n");
 
@@ -321,17 +323,17 @@ total_amount = b[count].cost * total_seat;
    }
    else
     {
-    fprintf (ufp, "% %d %d %d %s %d %s %s \n" , name, mobile, total_ seat, total_amount, b [count] . name, b[count].time);
+    fprintf (ufp, "% %d %d %d %s %d %s %s \n" , name, mobile, total_seat, total_amount, b [count] . name, b[count].time);
     printf ("\n Record insert Successful to the old record file");
     }
     printf ("\n");
   fclose (ufp);
-  £close (fp);
+  fclose (fp);
 
 }
 
 //for view all user transactions
-void old record ()
+void old_record ()
 {
     char ch;
     FILE *fp;
