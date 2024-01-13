@@ -1,0 +1,7 @@
+Numéro du film | Nom du film       | Durée    
+------------------------------------------------------------------
+1              | Inception         | 2h28min  
+2              | Pulp Fiction      | 2h34min  
+3              | The Shawshank Redemption | 2h22min 
+4              | The Dark Knight   | 2h32min  
+5              | Forrest Gump      | 2h22min  
