@@ -1,5 +1,8 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LENGTH 100
 
 void login() {
     int a = 0, i = 0;
@@ -7,10 +10,6 @@ void login() {
     char pword[10], code[10];
     char user[10] = "username";
     char pass[10] = "password";
-    FILE *fp;
-    
-    fp = fopen("BookedSeat.txt", "w");
-    fclose(fp);
 
     do {
         printf("\n\t\t\t\t\t\t ********************************************");
@@ -19,19 +18,19 @@ void login() {
         printf(" \n\n ENTER USERNAME:-");
         scanf("%s", uname);
         printf(" \n\n ENTER PASSWORD:-");
-        
+
         while (i < 10) {
             pword[i] = getch();
             c = pword[i];
-            
+
             if (c == 13)
                 break;
             else
                 printf("*");
-            
+
             i++;
         }
-        
+
         pword[i] = '\0';
 
         if (strcmp(uname, "username") == 0 && strcmp(pword, "password") == 0) {
@@ -57,20 +56,24 @@ void login() {
     system("cls");
 }
 
-struct book {
-    char code[20];
-    char name[20];
-    char date[20];
-    char time[20];
-    int cost;
-};
+void filmdetails() {
+    printf("1              | Inception         | 2h28min  \n 2              | Pulp Fiction      | 2h34min \n 3              | The Shawshank Redemption | 2h22min \n 4              | The Dark Knight   | 2h32min \n 5              | Forrest Gump      | 2h22min  " ); 
+  
 
-struct book b[100];
-int seat = 100;
+  
+}
 
-void movie_details();
-void buy_ticket();
-void old_record();
+void buy_ticket() {
+    char filmname;
+    printf("Which film you want to book for ?");
+    scanf(" %c", &filmname); 
+    printf("Congratulations! You have booked for %c\n", filmname);
+}
+
+void old_record() {
+   
+    printf("Inception \n Pulp Fiction \n The Shawshank Redemption\n The Dark Knight \n Forrest Gump ");
+}
 
 int main() {
     login();
@@ -93,7 +96,7 @@ int main() {
 
         switch (ch) {
             case 1:
-                movie_details();
+                filmdetails();
                 break;
             case 2:
                 buy_ticket();
@@ -102,56 +105,13 @@ int main() {
                 old_record();
                 break;
             case 0:
-                exit(0);
+                printf("Exiting program. Goodbye!\n");
                 break;
             default:
-                printf("Wrong choice!");
+                printf("Wrong choice!\n");
                 break;
         }
     } while (ch != 0);
 
     return 0;
 }
-
-void movie_details() {
-    char ch;
-    FILE *fp;
-
-    fp = fopen("data.txt", "r");
-    
-    if (fp == NULL) {
-        printf("file does not found !");
-        exit(1);
-    } else {
-        system("cls");
-        
-        while ((ch = fgetc(fp)) != EOF)
-            printf("%c", ch);
-    }
-
-    fclose(fp);
-}
-
-void buy_ticket() {
-    // your buy_ticket function code
-}
-
-void old_record() {
-    char ch;
-    FILE *fp;
-
-    fp = fopen("oldTransaction.txt", "r");
-    
-    if (fp == NULL) {
-        printf("file does not found !");
-        exit(1);
-    } else {
-        system("cls");
-        
-        while ((ch = fgetc(fp)) != EOF)
-            printf("%c", ch);
-    }
-
-    fclose(fp);
-}
-
